@@ -39,3 +39,8 @@
   align-items: center;
   gap: 0.5rem;
 }
+
+.addNewTask[type=submit]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
