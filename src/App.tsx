@@ -4,8 +4,26 @@ import { Header } from "./components/Header";
 import "./global.scss";
 import styles from "./App.module.scss";
 import { NewTask } from "./components/NewTask";
+import { useEffect, useState } from "react";
+import { api } from "./service/api";
+
+interface IData {
+  id: number;
+  task: string;
+  finished: boolean;
+}
 
 function App() {
+  const [data, setData] = useState<Array<IData>>([]);
+
+  useEffect(() => {
+    async function getData() {
+      const response = await api.get("tasks");
+      setData(response.data);
+    }
+    getData();
+  }, []);
+
   return (
     <>
       <Header />
@@ -13,10 +31,16 @@ function App() {
       <div className={styles.wrapper}>
         <div className={styles.tasksInfo}>
           <div className={styles.tasks}>
-            Tarefas criadas <span className={styles.countTasks}>0</span>
+            Tarefas criadas{" "}
+            <span className={styles.countTasks}>{data.length}</span>
           </div>
           <div className={styles.tasksFinisehd}>
-            Concluídas <span className={styles.countTasks}>0</span>
+            Concluídas{" "}
+            <span className={styles.countTasksFinished}>
+              {data.length !== 0
+                ? `${data.filter((d) => d.finished).length} de ${data.length}`
+                : 0}
+            </span>
           </div>
         </div>
         <div className={styles.emptyTask}>
