@@ -6,6 +6,7 @@ import styles from "./App.module.scss";
 import { NewTask } from "./components/NewTask";
 import { useEffect, useState } from "react";
 import { api } from "./service/api";
+import { Task } from "./components/Task";
 
 interface IData {
   id: number;
@@ -43,15 +44,21 @@ function App() {
             </span>
           </div>
         </div>
-        <div className={styles.emptyTask}>
-          <FiClipboard />
-          <span className={styles.emptyTaskTitle}>
-            Você ainda não tem tarefas cadastras
-          </span>
-          <span className={styles.emptyTaskSubtitle}>
-            Crie tarefas e organize seus itens a fazer
-          </span>
-        </div>
+        {data ? (
+          data.map((d) => (
+            <Task key={d.id} id={d.id} task={d.task} finished={d.finished} />
+          ))
+        ) : (
+          <div className={styles.emptyTask}>
+            <FiClipboard />
+            <span className={styles.emptyTaskTitle}>
+              Você ainda não tem tarefas cadastras
+            </span>
+            <span className={styles.emptyTaskSubtitle}>
+              Crie tarefas e organize seus itens a fazer
+            </span>
+          </div>
+        )}
       </div>
     </>
   );

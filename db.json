@@ -9,6 +9,41 @@
       "task": "Limpar casa",
       "finished": true,
       "id": 2
+    },
+    {
+      "task": "Limpeza de pele",
+      "finished": false,
+      "id": 3
+    },
+    {
+      "task": "a",
+      "finished": false,
+      "id": 4
+    },
+    {
+      "task": "b",
+      "finished": false,
+      "id": 5
+    },
+    {
+      "task": "c",
+      "finished": false,
+      "id": 6
+    },
+    {
+      "task": "d",
+      "finished": false,
+      "id": 7
+    },
+    {
+      "task": "e",
+      "finished": false,
+      "id": 8
+    },
+    {
+      "task": "f",
+      "finished": false,
+      "id": 9
     }
   ]
 }
