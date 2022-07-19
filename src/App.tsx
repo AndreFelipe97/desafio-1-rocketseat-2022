@@ -4,10 +4,8 @@ import { Header } from "./components/Header";
 import "./global.scss";
 import styles from "./App.module.scss";
 import { NewTask } from "./components/NewTask";
-import { useContext, useEffect, useState } from "react";
-import { api } from "./service/api";
+import { useContext, useEffect } from "react";
 import { Task } from "./components/Task";
-import AppProvider from "./hooks";
 import { GetContext } from "./hooks/useGet";
 
 interface IData {

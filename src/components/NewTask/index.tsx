@@ -1,7 +1,6 @@
 import styles from "./NewTask.module.scss";
 import { FiPlusCircle } from "react-icons/fi";
 import { useState, FormEvent, ChangeEvent, useContext } from "react";
-import { api } from "../../service/api";
 import { GetContext } from "../../hooks/useGet";
 import { PostContext } from "../../hooks/usePost";
 
