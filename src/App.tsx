@@ -4,9 +4,11 @@ import { Header } from "./components/Header";
 import "./global.scss";
 import styles from "./App.module.scss";
 import { NewTask } from "./components/NewTask";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "./service/api";
 import { Task } from "./components/Task";
+import AppProvider from "./hooks";
+import { GetContext } from "./hooks/useGet";
 
 interface IData {
   id: number;
@@ -15,14 +17,14 @@ interface IData {
 }
 
 function App() {
-  const [data, setData] = useState<Array<IData>>([]);
+  const { getValues, data } = useContext(GetContext);
 
   useEffect(() => {
-    async function getData() {
-      const response = await api.get("tasks");
-      setData(response.data);
+    async function getResponse() {
+      getValues();
     }
-    getData();
+
+    getResponse();
   }, []);
 
   return (
