@@ -13,10 +13,20 @@
   color: var(--gray-100);
 }
 
-.container svg {
-  color: var(--gray-300);
-}
-
 .container:not(:last-child) {
   margin-bottom: 1.2rem;
+}
+
+.container button {
+  background-color: transparent;
+  border: none;
+}
+
+.container svg {
+  color: var(--gray-300);
+  transition: all 1s;
+}
+
+.container svg:hover {
+  color: var(--blueDark);
 }

@@ -24,10 +24,13 @@ export function Task({ id, task, finished }: ITask) {
         id={String(id)}
         name={String(id)}
         onChange={handleCheck}
+        checked={checked}
         defaultChecked={checked}
       />
       <label htmlFor={String(id)}>{task}</label>
-      <FiTrash />
+      <button type="button">
+        <FiTrash />
+      </button>
     </div>
   );
 }
