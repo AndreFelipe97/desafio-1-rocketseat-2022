@@ -1,11 +1,6 @@
 {
   "tasks": [
     {
-      "task": "Dar banho nas cachorras",
-      "finished": false,
-      "id": 1
-    },
-    {
       "task": "Limpar casa",
       "finished": true,
       "id": 2
@@ -29,11 +24,6 @@
       "task": "c",
       "finished": false,
       "id": 6
-    },
-    {
-      "task": "d",
-      "finished": false,
-      "id": 7
     }
   ]
 }
