@@ -1,8 +1,10 @@
 import { FiClipboard } from "react-icons/fi";
-
-import { Header } from "./components/Header";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./global.scss";
 import styles from "./App.module.scss";
+
+import { Header } from "./components/Header";
 import { NewTask } from "./components/NewTask";
 import { useContext, useEffect } from "react";
 import { Task } from "./components/Task";
@@ -21,6 +23,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <Header />
       <NewTask />
       <div className={styles.wrapper}>

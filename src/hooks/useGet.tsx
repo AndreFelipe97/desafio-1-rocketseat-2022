@@ -1,4 +1,5 @@
 import React, { createContext, ReactNode, useCallback, useState } from "react";
+import { toast } from "react-toastify";
 import { api } from "../service/api";
 
 interface ITask {
@@ -25,7 +26,9 @@ export function GetProvider({ children }: GetProviderProps) {
     try {
       const { data } = await api.get("tasks");
       setData(data);
-    } catch (error) {}
+    } catch (error) {
+      toast("Erro ao listar as atividades", { type: "error" });
+    }
   }, []);
 
   return (

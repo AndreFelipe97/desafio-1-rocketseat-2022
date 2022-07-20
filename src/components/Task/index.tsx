@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { FiTrash } from "react-icons/fi";
+import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { DeleteContext } from "../../hooks/useDelete";
 import { GetContext } from "../../hooks/useGet";
@@ -34,7 +35,6 @@ export function Task({ id, task, finished }: ITask) {
       if (result.isConfirmed) {
         deleteValues(id);
         getValues();
-        Swal.fire("Deletado!", "Tarefa deletada.", "success");
       }
     });
   }

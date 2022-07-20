@@ -1,4 +1,5 @@
 import React, { createContext, ReactNode, useCallback, useState } from "react";
+import { toast } from "react-toastify";
 import { api } from "../service/api";
 
 interface ITask {
@@ -20,7 +21,10 @@ export function PostProvider({ children }: PostProviderProps) {
   const postValues = useCallback(async (data: ITask) => {
     try {
       await api.post("tasks", data);
-    } catch (error) {}
+      toast("Tarefa cadastrada com sucesso!", { type: "success" });
+    } catch (error) {
+      toast("Erro ao cadastrar a atividade", { type: "error" });
+    }
   }, []);
 
   return (

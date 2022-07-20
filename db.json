@@ -34,16 +34,6 @@
       "task": "d",
       "finished": false,
       "id": 7
-    },
-    {
-      "task": "e",
-      "finished": false,
-      "id": 8
-    },
-    {
-      "task": "f",
-      "finished": false,
-      "id": 9
     }
   ]
 }
