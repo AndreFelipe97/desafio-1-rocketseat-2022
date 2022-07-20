@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiTrash } from "react-icons/fi";
+import Swal from "sweetalert2";
+import { DeleteContext } from "../../hooks/useDelete";
+import { GetContext } from "../../hooks/useGet";
 
 import styles from "./Task.module.scss";
 
@@ -11,10 +14,29 @@ interface ITask {
 
 export function Task({ id, task, finished }: ITask) {
   const [checked, setChecked] = useState<boolean>(finished);
+  const { deleteValues } = useContext(DeleteContext);
+  const { getValues } = useContext(GetContext);
 
   function handleCheck() {
     console.log(!checked);
     setChecked(!checked);
+  }
+
+  function handleDelete() {
+    Swal.fire({
+      title: "Deletar!",
+      icon: "warning",
+      text: `Você quer deletar a tarefa ${task}?`,
+      showCancelButton: true,
+      confirmButtonText: "Deletar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteValues(id);
+        getValues();
+        Swal.fire("Deletado!", "Tarefa deletada.", "success");
+      }
+    });
   }
 
   return (
@@ -28,7 +50,7 @@ export function Task({ id, task, finished }: ITask) {
         defaultChecked={checked}
       />
       <label htmlFor={String(id)}>{task}</label>
-      <button type="button">
+      <button onClick={handleDelete} type="button">
         <FiTrash />
       </button>
     </div>

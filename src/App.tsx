@@ -8,12 +8,6 @@ import { useContext, useEffect } from "react";
 import { Task } from "./components/Task";
 import { GetContext } from "./hooks/useGet";
 
-interface IData {
-  id: number;
-  task: string;
-  finished: boolean;
-}
-
 function App() {
   const { getValues, data } = useContext(GetContext);
 

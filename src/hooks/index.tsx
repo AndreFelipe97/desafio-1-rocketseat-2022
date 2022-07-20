@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { GetProvider } from "./useGet";
 import { PostProvider } from "./usePost";
+import { DeleteProvider } from "./useDelete";
 
 interface IAppProvider {
   children: ReactNode;
@@ -9,7 +10,9 @@ interface IAppProvider {
 function AppProvider({ children }: IAppProvider) {
   return (
     <GetProvider>
-      <PostProvider>{children}</PostProvider>
+      <PostProvider>
+        <DeleteProvider>{children}</DeleteProvider>
+      </PostProvider>
     </GetProvider>
   );
 }
